@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Projekt-Exposé by BuDDi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Projekt-Exposé</h1>
+        <p>Game Engine Architecture Projektdefinition</p>
+
+        <ul>
+          <li><a href="konzept.pdf">Öffnen <strong>Konzept</strong></a></li>
+          <li><a href="presentation.pdf">Öffnen <strong>Präsentation</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Lunar Lander 3D</h1>
+
+<p>Die Vorlage für das zu entwickelnde Spiel ist Lunar Lander aus dem Jahr 1979.
+Das Spiel wird insofern erweitert, als dass es in die Dritte-Dimension überführt werden soll, was zugleich die grösste Änderung an der Vorlage bedeutet.</p>
+
+<p>Es soll sich dabei um eine physikalische Simulation einer zu landenden Raumfähre handeln. Das ursprüngliche Spielprinzip soll größtenteils erhalten bleiben, jedoch etwas komplexer umgesetzt werden.
+Die physikalischen Eingabeparameter sollen sich an der Realität orientieren, sodass bspw. die Gravitation des Mondes simuliert wird. Lediglich die Simulation von Wind, wie auch in der Vorlage, entzieht sich der Realität.</p>
+
+<h2>Ziel des Spiels</h2>
+
+<p>Ziel des Spiels ist es alle Landeplattformen mit möglichst wenig Schaden, wenig Treibstoffverbrauch und wenig Zeit anzufliegen. Die Punktzahl hängt dann von den 3 Faktoren erlittener Schaden, verbrauchter Treibstoff und benötigte Zeit ab.
+Gegenüber der Vorlage bedeutet das, dass die begrenzte Zeit entfällt.</p>
+
+<p>Die Anzeige des Schadens soll über eine Textur, die die verschiedenen Collider-Objekte darstellt, erfolgen und klassische Signalfarben, wie rot und grün verwenden.</p>
+
+<h2>Steuerung</h2>
+
+<p>Um den Schwierigkeitsgrad zu erhöhen, soll die Steuerung der Fähre über Beschleunigungssensoren erfolgen und möglichst wenig Interaktion mittels Knöpfe beinhalten, was den Vorteil hat es leicht auf eine mobile Platform portieren zu können. </p>
+
+<h2>HUD</h2>
+
+<p>Die Anzeige soll möglichst minimalistisch gehalten werden. Es werden also einige Anzeigen aus der Vorlage entfallen, wie bspw. die Gravition, die aktuelle Geschwindigkeit oder die Windgeschwindigkeit (das entspricht nicht der Realität, soll aber aus Gründen des steigenden Schwierigkeitsgrades nicht entfallen -&gt; die Vorlage enthält auch eine horizontale Kraft)</p>
+
+<h2>Darstellung</h2>
+
+<p>Die Darstellung der Szene, soll in erster Linie als Draufsicht realisiert werden. Mit anderen Worten eine 3rd-Person-Kamera, die immer auf die Fähre schaut.
+In dieser Ansicht wäre es erforderlich, den Spieler auf die Nähe zum Boden hinzuweisen. Das soll entweder über Partikelemitter, die die Staubaufwirbelungen darstellen, einem Ton (ähnlich Einparkhilfen), wechselbare Kameras oder einer Mischung erfolgen.</p>
+
+<h2>Zusatz</h2>
+
+<ul>
+<li>Verschiedene Scenarien / Levels (Planeten)</li>
+<li>Verschieden Landefähren</li>
+<li>Verschieden Kameras in der Szene</li>
+<li>McDonalds-Scherz ale Anlehnung an die Originalversion "Boy, are you inept!"</li>
+<li>Schadensmodell</li>
+<li>Medaillen für das Abschließen eines Levels (Gold, Silber, Bronze -&gt; abhängig von Vorgaben für Schaden, Treibstoff, Zeit)</li>
+<li>Belohnung (Erfolge, neue Landefähren, neue Levels)</li>
+</ul><p>Änderungen vorbehalten.
+<br><br>
+Beschreibung als <a href="konzept.pdf">PDF</a> öffnen.
+<br>
+Präsentation als <a href="presentation.pdf">PDF</a> öffnen.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/BuDDi">BuDDi</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
