@@ -30,7 +30,7 @@
 Das Spiel wird insofern erweitert, als dass es in die Dritte-Dimension überführt werden soll, was zugleich die grösste Änderung an der Vorlage bedeutet.</p>
 
 <p>Es soll sich dabei um eine physikalische Simulation einer zu landenden Raumfähre handeln. Das ursprüngliche Spielprinzip soll größtenteils erhalten bleiben, jedoch etwas komplexer umgesetzt werden.
-Die physikalischen Eingabeparameter sollen sich an der Realität orientieren, sodass bspw. die Gravitation des Mondes simuliert wird. Lediglich die Simulation von Wind, wie auch in der Vorlage, entzieht sich der Realität.</p>
+Die physikalischen Eingabeparameter sollen sich an der Realität orientieren, sodass bspw. die Gravitation des Mondes simuliert wird. Lediglich die Simulation von Wind entzieht sich der Realität und ist nicht zwangsläufig Teil des Spiels, sondern eine Erweiterung zur Steigerung des Schwierigkeitsgrades. Andere Planeten, die eine Atmosphäre haben könnten dann mit dem zusätzlichen Parameter Wind versehen werden.</p>
 
 <h2>Ziel des Spiels</h2>
 
@@ -41,21 +41,27 @@ Gegenüber der Vorlage bedeutet das, dass die begrenzte Zeit entfällt.</p>
 
 <h2>Steuerung</h2>
 
-<p>Um den Schwierigkeitsgrad zu erhöhen, soll die Steuerung der Fähre über Beschleunigungssensoren erfolgen und möglichst wenig Interaktion mittels Knöpfe beinhalten, was den Vorteil hat es leicht auf eine mobile Platform portieren zu können. </p>
+<p>Um den Schwierigkeitsgrad zu erhöhen, soll die Steuerung der Fähre über Beschleunigungssensoren erfolgen und möglichst wenig Interaktion mittels Knöpfe beinhalten, was den Vorteil hat es leicht auf eine mobile Platform portieren zu können.
+Im Prinzip ist dieser Ansatz vergleichbar mit aktuellen Murmelgeschicklichkeitsspielen.</p>
 
 <h2>HUD</h2>
 
-<p>Die Anzeige soll möglichst minimalistisch gehalten werden. Es werden also einige Anzeigen aus der Vorlage entfallen, wie bspw. die Gravition, die aktuelle Geschwindigkeit oder die Windgeschwindigkeit (das entspricht nicht der Realität, soll aber aus Gründen des steigenden Schwierigkeitsgrades nicht entfallen -&gt; die Vorlage enthält auch eine horizontale Kraft)</p>
+<p>Die Anzeige soll möglichst minimalistisch gehalten werden. Es werden also einige Anzeigen aus der Vorlage entfallen, wie bspw. die Gravition, die aktuelle Geschwindigkeit oder die Windgeschwindigkeit (das entspricht nicht der Realität für Planeten ohne Atmosphäre, soll aber aus Gründen des steigenden Schwierigkeitsgrades nicht entfallen). Der Spieler soll aber dennoch über die wichtigsten Gegebenheiten informiert werden. Es soll aber überwiegend grafisch aufbereitete Information angezeigt werden. Die Geschwindigkeit bspw. entfällt und soll über die Annäherung zum Terrain erkannt werden. Anzeigen die eine textuelle Repräsentation erfordern werden auch so dargestellt, bspw. die Zeit. Der Schaden und der Treibstoff sind Beispiele für Eigenschaften, die nicht mit Zahlen ausgedrückt werden sollen.</p>
 
 <h2>Darstellung</h2>
 
 <p>Die Darstellung der Szene, soll in erster Linie als Draufsicht realisiert werden. Mit anderen Worten eine 3rd-Person-Kamera, die immer auf die Fähre schaut.
-In dieser Ansicht wäre es erforderlich, den Spieler auf die Nähe zum Boden hinzuweisen. Das soll entweder über Partikelemitter, die die Staubaufwirbelungen darstellen, einem Ton (ähnlich Einparkhilfen), wechselbare Kameras oder einer Mischung erfolgen.</p>
+In dieser Ansicht wäre es erforderlich, den Spieler auf die Nähe zum Boden hinzuweisen. Das soll entweder über Partikelemitter, die die Staubaufwirbelungen darstellen, einem Ton (ähnlich Einparkhilfen), wechselbare Kameras oder einer Mischung erfolgen. Denkbar sind auch Schatten, welche aber nur in der Pro Version von Unity verwendbar sind und vorerst nicht zur Verfügung stehen.</p>
+
+<h2>Punktesystem</h2>
+
+<p>Das Punktesystem wird, sofern es das zulässt beibehalten und um die erforderlichen Neuheiten erweitert. Die Härte des Auftreffens, sowie die Position auf der Landeplattform werden die Bepunktung beeinflussen. Landeplattformen haben einen Schwierigkeitsgrad, abhängig vom Gelände, und verursachen einen Multiplikator, der sich mit dem Schwierigkeitsgrad erhöht.
+Das erfolgreiche Landen auf einer Plattform gibt dem Spieler zusätzlichen Treibstoff für seine Landefähre.</p>
 
 <h2>Zusatz</h2>
 
 <ul>
-<li>Verschiedene Scenarien / Levels (Planeten)</li>
+<li>Verschiedene Scenarien / Levels (Planeten mit Wind)</li>
 <li>Verschieden Landefähren</li>
 <li>Verschieden Kameras in der Szene</li>
 <li>McDonalds-Scherz ale Anlehnung an die Originalversion "Boy, are you inept!"</li>
