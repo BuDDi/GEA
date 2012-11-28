@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Lunar Lander Prototyp</title>
 
-    <link rel="stylesheet" href="../stylesheets/styles.css">
-    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,32 +19,36 @@
         <p>Game Engine Architecture Prototyp</p>
 
         <ul>
-          <li><a href="Aufgabe1.pdf">Öffnen <strong>PDF Datei</strong></a></li>
+          <li><a href="LunarLanderPrototype/LunarLanderPrototype.html">Starten <strong>Prototyp</strong></a></li>
         </ul>
       </header>
       <section>
-        <h1>Lunar Lander (1979)</h1>
+        <h1>Beschreibung der Implementierung</h1>
 
-<p><br><img src="http://upload.wikimedia.org/wikipedia/en/9/9f/Lunar_Lander.png" alt="Lunar Lander (1979)"><br><br></p>
+<p>Der Prototyp umfasst die grundlegenden Elemente für die Spiellogik, sodass in der Version eine Zeit mitläuft, in der alle Landeplattformen angeflogen werden müssen. Die Bewegungsfreiheit ist dadurch eingeschränkt, dass eine imaginäre Spähre das Spielfeld beschränkt und man dann begrenzt Zeit hat in den Spielbereich zurückzukehren. Die Zeiten versetzen das Spiel vorerst nur in einen Status, sodass bisher nicht angemessen auf das Ablaufen der Zeiten reagiert wird, da es bisher keinerlei Menüs gibt.
+<br><br>
+Die Landeplattformen haben einen Aktiv-Status und sobald diese angeflogen wurde kann sie nicht wieder reaktiviert werden, sodass die Punkte nicht mehrmals vergeben werden. Landet man auf einer Landeplattform so entscheidet der Abstand zur Mitte der Plattform über die Punkte, je kleiner der Abstand ist, desto höher die Punktzahl, in diesem Fall das Erhalten von mehr Benzin (mögliche Änderungen/Erweiterungen: Das Landeverhalten wird differenzierter betrachtet; bspw. wenn man gleichzeitig mit allen Füssen aufsetzt erhält man mehr Punkte und wenn der Aufprall "weich" ist -> perfekte Landung, so kann auch ein Multiplikator-Prinzip eingeführt werden, was den Arcarde-Charakter stärken würde).
+Die am dichtesten befindliche Landeplattform wird mittels eines grünen Pfeils angezeigt.
+Aktive Landeplattformen werden durch einen Partikeleffekt dargestellt. In Zukunft soll dieser Effekt optisch verbessert werden und auf der Minimap die Darstellung geändert werden.
+<br><br>
+Das Schiff nimmt abhängig von der Aufprallgeschwindigkeit Schaden. Ist der Wert 0 explodiert das Schiff. 
+<br><br>
+Bisher hat das Spiel keine Ende, da nur Werte aufgezeichnet werden und noch keine Reaktion erfolgt, aber das Spiel gilt theoretisch als beendet, wenn die Zeit zum Erreichen aller Plattformen abgelaufen ist (Änderung ist an dieser Stelle noch vorbehalten, da auch das hochzählen der Zeit denkbar ist und mögliche Erfolge realisiert werden können bspw. Gold, Silber und Bronze Medaillen), man es nicht innerhalb der vorgegebenen Zeit wieder zurück auf das Spielfeld schafft, oder das Schiff zerstört wird.
+In diesen 3 Fällen gilt das Spiel als verloren. Schafft man es innerhalb der vorgegebenen Zeit alle Plattformen anzufliegen gilt das Spiel als gewonnen.
+<br><br>
+Ausblick: Das Spiel soll mehr Spaß vermitteln. Also soll, sofern das machbar ist, ein Belohnungssystem eingeführt werden und mehr Atmosphäre geschaffen werden.
+<br><br>
+<b>Hinweis:</b> Das Spiel wird mit der Wii-Fernbedienung gesteuert, was momentan mit dem Web-Player nicht fuktioniert. Es wird aber an einer Lösung des Problems gearbeitet.
+</p>
 
-<h2>Links:</h2>
 
-<ul>
-<li><a href="http://de.wikipedia.org/wiki/Lunar_Lander">http://de.wikipedia.org/wiki/Lunar_Lander</a></li>
-<li><a href="http://en.wikipedia.org/wiki/File:Lunar_Lander.png">http://en.wikipedia.org/wiki/File:Lunar_Lander.png</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Lunar_Lander_(video_game)">http://en.wikipedia.org/wiki/Lunar_Lander_(video_game)</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Lunar_Lander_(arcade_game)">http://en.wikipedia.org/wiki/Lunar_Lander_(arcade_game)</a></li>
-<li><a href="http://www.arcade-history.com/?n=lunar-lander&amp;page=detail&amp;id=1417">http://www.arcade-history.com/?n=lunar-lander&amp;page=detail&amp;id=1417</a></li>
-<li>
-<a href="http://www.youtube.com/watch?v=NyAT9ot7Nu4">http://www.youtube.com/watch?v=NyAT9ot7Nu4</a> </li>
-</ul>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/BuDDi">BuDDi</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="../javascripts/scale.fix.js"></script>
     
   </body>
 </html>
