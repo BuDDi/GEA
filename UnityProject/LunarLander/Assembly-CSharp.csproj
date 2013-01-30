@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{F0B00B59-86EE-B6F1-CEDC-C51EAEDB672F}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_OSX;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\GUI\HeightBar.cs" />
+     <Compile Include="Assets\OSCuMote\OSC.NET\jsOSCBundle.cs" />
+     <Compile Include="Assets\OSCuMote\OSC.NET\jsOSCMessage.cs" />
+     <Compile Include="Assets\OSCuMote\OSC.NET\jsOSCPacket.cs" />
+     <Compile Include="Assets\OSCuMote\OSC.NET\jsOSCReceiver.cs" />
+     <Compile Include="Assets\OSCuMote\OSC.NET\jsOSCTransmitter.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioClient.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioContainer.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioCursor.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioListener.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioObject.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioPoint.cs" />
+     <Compile Include="Assets\OSCuMote\TUIO\jsTuioTime.cs" />
+     <Compile Include="Assets\OSCuMote\TuioUnityListener.cs" />
+     <Compile Include="Assets\OSCuMote\Wiimote.cs" />
+     <Compile Include="Assets\OSCuMote\WiimoteReceiver.cs" />
+     <Compile Include="Assets\Scripts\FootCollisionHandler.cs" />
+     <Compile Include="Assets\Scripts\Keyboard.cs" />
+     <Compile Include="Assets\Scripts\Lander.cs" />
+     <Compile Include="Assets\Scripts\LanderWiiMote.cs" />
+     <Compile Include="Assets\Scripts\LandingPadGroup.cs" />
+     <Compile Include="Assets\Scripts\LandingPlatform.cs" />
+     <Compile Include="Assets\Scripts\LevelBounds.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\SmoothFollowCamera.cs" />
+     <Compile Include="Assets\Scripts\TheBrain.cs" />
+     <Compile Include="Assets\iTween\Plugins\iTween.cs" />
+     <Compile Include="Assets\iTween\Sample\MoveSample.cs" />
+     <Compile Include="Assets\iTween\Sample\RotateSample.cs" />
+     <Compile Include="Assets\iTween\Sample\SampleInfo.cs" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
+     <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{0D12F3D5-175A-0655-C8E7-C0550993BE12}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{678E3FA8-3BF1-4DD0-D8C3-5D9468DD09FF}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
