@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 // TODO umbenennen in LevelManager
+[RequireComponent (typeof(LevelBounds))]
 public class LandingPadGroup: MonoBehaviour
 {
 	private static LandingPadGroup instance;
@@ -17,6 +18,7 @@ public class LandingPadGroup: MonoBehaviour
 	public GUIText timeLabel;
 	public GUIText remainingPadsLabel;
 	public GUIText scoreLabel;
+	public AudioClip selectSound;
 	//private GUIText messageLabel;
 	//private float startingTime = 4;
 	
@@ -59,10 +61,14 @@ public class LandingPadGroup: MonoBehaviour
 		this.messageLabelfontSize = 48;
 		print ("Finished Fake load");
 		Time.timeScale = 1;
+		if(gameObject.audio == null) {
+			gameObject.AddComponent(typeof(AudioSource));
+		}
 	}
 	
 	// Update is called once per frame
 	private string[] currentButtons;
+	private bool scalingUp;
 
 	void Update ()
 	{
@@ -79,6 +85,7 @@ public class LandingPadGroup: MonoBehaviour
 					activeMenuButton = 0;
 				}
 				lastButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 			if (wiimote.BUTTON_UP > 0 && elapsedToggleTime > 0.3f) {
 				print ("UP");
@@ -87,6 +94,7 @@ public class LandingPadGroup: MonoBehaviour
 					activeMenuButton = currentButtons.Length - 1;
 				}
 				lastButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 		}
 		if (Lander.GetInstance ().isStarted () && !isPaused) {
@@ -101,6 +109,10 @@ public class LandingPadGroup: MonoBehaviour
 			this.scoreLabel.text = "Score: " + currentLevelScore.ToString ();
 			
 			this.messageLabelDisplayTime -= Time.deltaTime;
+			
+			if(timeToBeat <= 0){
+				SetGameOver();
+			}
 		} else {
 			//print("Countdown " + this.messageLabelDisplayTime.ToString());
 			this.messageLabelDisplayTime -= Time.deltaTime;
@@ -114,6 +126,21 @@ public class LandingPadGroup: MonoBehaviour
 				Lander.GetInstance ().startSimulation ();
 			}
 		}
+		/*if(landedRecently) {
+			if(scoreLabelScale < 2 && scalingUp){
+				scalingUp = true;
+				scoreLabelScale += Time.deltaTime;
+			}
+			else if(scoreLabelScale >= 2){
+				scalingUp = false;
+				scoreLabelScale -= Time.deltaTime; 
+			}
+			if(!scalingUp && scoreLabelScale <= 2) {
+				scoreLabelScale = 1;
+				landedRecently = false;
+			}
+			scoreLabel.fontSize = (int)((18 * scoreLabelScale)+0.5f);
+		}*/
 		
 	}
 	
@@ -200,6 +227,7 @@ public class LandingPadGroup: MonoBehaviour
 		}
 	}*/
 	
+	// useful for the arrow of the Lander
 	public GameObject GetNearestLandingPad (GameObject ship)
 	{
 		GameObject nearestLandingPad = null;
@@ -293,28 +321,32 @@ public class LandingPadGroup: MonoBehaviour
 		this.amountOfFeet = amountOfFeet;
 	}
 	
-	public IEnumerator LandedOnPlatform (GameObject landingPad, float distanceToCenter, float maxFuelRestore, int multiplier)
+	float scoreLabelScale = 1;
+	bool landedRecently = false;
+	public IEnumerator LandedOnPlatform (GameObject landingPad, float distanceToCenter, float maxFuelRestore)
 	{
 		if (landingPad.Equals (lastLandingPad)) {
 			
 			Debug.Log ("Feet on the Ground: " + amountOfFeet + " ... you get Points and Fuel! Dist: " + distanceToCenter.ToString ());
 			bool perfectLanding = amountOfFeet == 4;
-			int bonusMultiplier = amountOfFeet;
+			int multiplier = amountOfFeet;
 			/*if(perfectLanding){
 				// TODO perfect landing
 				Debug.Log("Perfect Landing");
 				SetMessageLabelText("Perfect Landing", 1f);
 				yield return new WaitForSeconds(1f);
 			}*/
-			
-			float points = Mathf.Pow (distanceToCenter, amountOfFeet) / impact;
-			float score = points * (multiplier + bonusMultiplier);
+			LandingPlatform platformScript = landingPad.GetComponent<LandingPlatform>();
+			float points = platformScript.scorePoints - distanceToCenter - impact;
+			int bonusMultiplier = platformScript.multiply;
+			int score = ((int)(points+0.5f)) * (multiplier + bonusMultiplier);
 			string scoreText = (perfectLanding ? "Perfect Landing\n" : "") +
-				(multiplier + bonusMultiplier).ToString () + " x " + ((int)(points + 0.5f)).ToString ();
+				(multiplier + bonusMultiplier).ToString () + " x " + ((int)(score/(multiplier + bonusMultiplier))).ToString ();
 			SetMessageLabelText (scoreText, 24, 2f);
 			yield return new WaitForSeconds(2f);
 			
-			currentLevelScore += (int)(score + 0.5);
+			currentLevelScore += score;
+			
 			// TODO Score textlabel aufblitzen lassen
 			float bonusFuel = (maxFuelRestore * multiplier) - distanceToCenter;
 			Lander.GetInstance ().AddFuel (bonusFuel);
@@ -328,8 +360,8 @@ public class LandingPadGroup: MonoBehaviour
 	private IEnumerator EndLevel ()
 	{
 		
-		this.currentLevelScore += finishScore - (int)((elapsedTime * 0.2) + 0.5);
-		this.currentLevelScore += (int)(Lander.GetInstance ().GetFuel () + 0.5f);
+		this.currentLevelScore += (int)((finishScore + timeToBeat + Lander.GetInstance ().GetFuel ())+0.5f);
+		//this.currentLevelScore += (int)( + 0.5f);
 		TheBrain.GetInstance ().ApplyCurrentScore (currentLevelScore);
 		
 		SetMessageLabelText ("Well done ...", 48, 3);

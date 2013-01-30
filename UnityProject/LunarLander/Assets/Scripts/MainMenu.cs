@@ -15,6 +15,8 @@ public class MainMenu : MonoBehaviour
 	private int selectedLevel = 0;
 	private int selectedSaveGame = 1;
 	private List<string> availableLevels;
+	public Texture2D[] levelPics;
+	public AudioClip selectSound;
 	
 	// Use this for initialization
 	void Start ()
@@ -28,6 +30,9 @@ public class MainMenu : MonoBehaviour
 			print("already loaded");
 		}*/
 		this.availableLevels = TheBrain.GetInstance ().GetAvailableLevels ();
+		if(audio == null) {
+			gameObject.AddComponent(typeof(AudioSource));
+		}
 	}
 	
 	// Update is called once per frame
@@ -49,6 +54,7 @@ public class MainMenu : MonoBehaviour
 					activeMenuButton = 0;
 				}
 				lastButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 			if (wiimote.BUTTON_UP > 0 && elapsedToggleTime > 0.2f) {
 				print ("UP");
@@ -57,6 +63,7 @@ public class MainMenu : MonoBehaviour
 					activeMenuButton = menuButtonNames.Length - 1;
 				}
 				lastButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 			float elapsedSubMenuToggleTime = Time.realtimeSinceStartup - lastSubButtonToggleTime;
 			if (wiimote.BUTTON_LEFT > 0 && elapsedSubMenuToggleTime > 0.2f) {
@@ -66,6 +73,7 @@ public class MainMenu : MonoBehaviour
 					selectedLevel = 0;
 				}
 				lastSubButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 			if (wiimote.BUTTON_RIGHT > 0 && elapsedSubMenuToggleTime > 0.2f) {
 				print ("RIGHT");
@@ -74,6 +82,7 @@ public class MainMenu : MonoBehaviour
 					selectedLevel = availableLevels.Count - 1;
 				}
 				lastSubButtonToggleTime = Time.realtimeSinceStartup;
+				audio.PlayOneShot(selectSound);
 			}
 			
 		}

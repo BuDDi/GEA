@@ -275,9 +275,12 @@ public class Lander : MonoBehaviour
 	
 	public void ReduceFuel (float speed)
 	{
-		float reducement = speed / 20000;
+		float reducement = speed / 15000;
 		// Debug.Log("Reduce Fuel: " + reducement);
 		fuel -= reducement;
+		if(fuel <= 0){
+			LandingPadGroup.GetInstance().SetGameOver();
+		}
 	}
 	
 	public float GetFuel ()

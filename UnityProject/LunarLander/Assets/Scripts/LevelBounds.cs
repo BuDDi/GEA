@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(LandingPadGroup))]
 public class LevelBounds : MonoBehaviour
 {
 	

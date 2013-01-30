@@ -8,6 +8,8 @@ public class LandingPlatform : MonoBehaviour
 	public bool activated = false;
 	public int multiply = 1;
 	private float maxFuelRestore = 15;
+	
+	public float scorePoints = 50;
 
 	// Use this for initialization
 	void Start ()
@@ -94,9 +96,10 @@ public class LandingPlatform : MonoBehaviour
 					landedBefore = true;
 					activated = false;
 					
-					StartCoroutine(LandingPadGroup.GetInstance().LandedOnPlatform(gameObject, averageDist, maxFuelRestore, multiply));
+					StartCoroutine(LandingPadGroup.GetInstance().LandedOnPlatform(gameObject, averageDist, maxFuelRestore));
 				}
 			}
 		}
 	}
+	
 }
