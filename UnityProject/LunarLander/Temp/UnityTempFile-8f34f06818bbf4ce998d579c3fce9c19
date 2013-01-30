@@ -1,0 +1,42 @@
+-debug
+-target:library
+-nowarn:0169
+-out:'Temp/Assembly-CSharp-firstpass.dll'
+-r:'/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandalonePlayer/Managed/UnityEngine.dll'
+-define:UNITY_STANDALONE
+-define:ENABLE_MICROPHONE
+-define:ENABLE_IMAGEEFFECTS
+-define:ENABLE_WEBCAM
+-define:ENABLE_AUDIO_FMOD
+-define:ENABLE_NETWORK
+-define:ENABLE_MONO
+-define:ENABLE_PHYSICS
+-define:ENABLE_TERRAIN
+-define:ENABLE_CACHING
+-define:ENABLE_SUBSTANCE
+-define:ENABLE_GENERICS
+-define:ENABLE_CLOTH
+-define:ENABLE_MOVIES
+-define:ENABLE_AUDIO
+-define:ENABLE_WWW
+-define:ENABLE_SHADOWS
+-define:ENABLE_DUCK_TYPING
+-define:UNITY_4_0_1
+-define:UNITY_4_0
+-define:UNITY_STANDALONE_OSX
+-define:DEVELOPMENT_BUILD
+-define:ENABLE_PROFILER
+'Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs'
+'Assets/Standard Assets/Detonator/System/Detonator.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorBurstEmitter.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorCloudRing.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorFireball.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorForce.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorGlow.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorHeatwave.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorLight.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorShockwave.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorSmoke.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorSound.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorSparks.cs'
+'Assets/Standard Assets/Detonator/System/DetonatorSpray.cs'

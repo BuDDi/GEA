@@ -253,14 +253,14 @@ public class Lander : MonoBehaviour
 		//int xArrow = (int)(Screen.width - 10 - (widthArrow / 2));
 		//GUI.DrawTexture (new Rect (xArrow, yArrow, widthArrow, heightArrow), heightBarArrow);
 		
-		GUI.BeginGroup (new Rect (x, y, width, 50));
-		GUI.Box (new Rect (0, 0, textWidth, 50), "Status:");
+		//GUI.BeginGroup (new Rect (x, y, width, 50));
+		//GUI.Box (new Rect (0, 0, textWidth, 50), "Status:");
 		/*GUI.Label (new Rect (5, 20, textWidth, 20), "Score: " + LandingPadGroup.GetInstance ().GetCurrentLevelScore ());
 		GUI.Label (new Rect (5, 35, textWidth, 20), "Health: " + health.ToString ());
 		GUI.Label (new Rect (5, 50, textWidth, 20), "Fuel: " + fuel.ToString ());*/
-		GUI.Label (new Rect (5, 20, textWidth, 20), "Height: " + distanceToGround.ToString ());
+		//GUI.Label (new Rect (5, 20, textWidth, 20), "Height: " + distanceToGround.ToString ());
 		//GUI.Label (new Rect (5, 80, textWidth, 20), "Remaining: " + LandingPadGroup.GetInstance().GetRemainingLandingPads ().ToString ());
-		GUI.EndGroup ();
+		//GUI.EndGroup ();
 	}
 	
 	void ReduceHealth (float subHealth)

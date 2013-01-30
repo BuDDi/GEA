@@ -21,6 +21,7 @@ public class LevelBounds : MonoBehaviour
 	{
 		if (outOfLevel) {
 			secondsLeft -= Time.deltaTime;
+			LandingPadGroup.GetInstance().SetMessageLabelText("Game Over in\n" + secondsLeft + " s", 12, 0.1f);
 			if (secondsLeft <= 0) {
 				// TODO GameOver
 				Debug.Log ("Game Over!!!");
@@ -29,7 +30,7 @@ public class LevelBounds : MonoBehaviour
 		}
 	}
 	
-	void OnGUI ()
+	/*void OnGUI ()
 	{
 		// TODO Minimap mit allen Landeplattformen zeichnen
 		if (outOfLevel) {
@@ -38,7 +39,7 @@ public class LevelBounds : MonoBehaviour
 			//GUI.DrawTexture (new Rect (x, 10, health * 2, 20), healthBar);
 			GUI.Label (new Rect (x, 210, width, 100), "Time left: " + secondsLeft.ToString("0.00") + "s");
 		}
-	}
+	}*/
 	
 	void OnTriggerEnter ()
 	{

@@ -102,7 +102,7 @@ public class TheBrain
 	
 	private void SaveGameState ()
 	{
-		string fileName = Directory.GetCurrentDirectory () + "/saveGames/save" + saveGame + ".csv";
+		string fileName = Directory.GetCurrentDirectory () + "../saveGames/save" + saveGame + ".csv";
 		Debug.Log ("Saving Game State " + fileName + " ...");
 		FileStream fs = null;
 		if (File.Exists (fileName)) {

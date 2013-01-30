@@ -74,7 +74,6 @@ public class LandingPadGroup: MonoBehaviour
 	{
 		
 		if ((isPaused || gameOver) && WiimoteReceiver.Instance.wiimotes.ContainsKey (1)) {
-			currentButtons = isPaused ? pauseMenuButtonNames : endMenuButtonNames;
 			//print ("Got WiiMote in Menu");
 			Wiimote wiimote = WiimoteReceiver.Instance.wiimotes [1];
 			float elapsedToggleTime = Time.realtimeSinceStartup - lastButtonToggleTime;
@@ -155,6 +154,8 @@ public class LandingPadGroup: MonoBehaviour
 		//GUI.matrix = Matrix4x4.TRS (new Vector3 (0, 0, 0), Quaternion.identity, new Vector3 (Screen.height / nativeVerticalResolution, Screen.height / nativeVerticalResolution, 1)); 
 
 		if (isPaused || gameOver) {
+			
+			currentButtons = isPaused ? pauseMenuButtonNames : endMenuButtonNames;
 			
 			// TODO wrap with GUI.Box
 			//print ("center: " + (Screen.width / 2).ToString ());
@@ -349,7 +350,7 @@ public class LandingPadGroup: MonoBehaviour
 			
 			// TODO Score textlabel aufblitzen lassen
 			float bonusFuel = (maxFuelRestore * multiplier) - distanceToCenter;
-			Lander.GetInstance ().AddFuel (bonusFuel);
+			Lander.GetInstance ().AddFuel (bonusFuel / 3);
 			Debug.Log ("Added Fuel");
 			if (GetRemainingLandingPads () == 0) {
 				yield return StartCoroutine(EndLevel());
